@@ -5,6 +5,7 @@ import { Product } from 'src/app/demo/api/product';
 import { ProductService } from 'src/app/demo/service/product.service';
 import { Table } from 'primeng/table';
 import { MessageService, ConfirmationService } from 'primeng/api';
+import { InputCM } from '../../models/input-cm';
 
 interface expandedRows {
     [key: string]: boolean;
@@ -39,6 +40,7 @@ export class TableHotComponent implements OnInit {
   expandedRows: expandedRows = {};
 
   activityValues: number[] = [0, 100];
+  inputCm!: InputCM;
 
   isExpanded: boolean = false;
 
@@ -83,6 +85,96 @@ export class TableHotComponent implements OnInit {
           { label: 'Renewal', value: 'renewal' },
           { label: 'Proposal', value: 'proposal' }
       ];
+
+      const json = `{
+        "data": [
+          {
+            "id": "620643e45add3d00013c0dcc",
+            "key": "Sta",
+            "label": "Sta",
+            "widget": "Combo",
+            "service": "FSP",
+            "rolld": "",
+            "order": 7,
+            "isAdvanced": [],
+            "keyCombo": [],
+            "labelCombo": []
+          },
+          {
+            "id": "620643e45add3d00013c0dc4",
+            "key": "size",
+            "label": "size",
+            "widget": "Text",
+            "service": "FSP",
+            "rolld": "",
+            "order": 3,
+            "isAdvanced": [],
+            "keyCombo": [],
+            "labelCombo": []
+          },
+          {
+            "id": "620643e45add3d00013c0dca",
+            "key": "reqTy",
+            "label": "reqTy",
+            "widget": "Combo",
+            "service": "FSP",
+            "rolld": "",
+            "order": 6,
+            "isAdvanced": [],
+            "keyCombo": [],
+            "labelCombo": []
+          },
+          {
+            "id": "620643e45add3d00013c0dce",
+            "key": "id",
+            "label": "id",
+            "widget": "Text",
+            "service": "FSP",
+            "rolld": "",
+            "order": 8,
+            "isAdvanced": [],
+            "keyCombo": [],
+            "labelCombo": []
+          },
+          {
+            "id": "620643e45add3d00013c0dc8",
+            "key": "fileName",
+            "label": "fileName",
+            "widget": "Text",
+            "service": "FSP",
+            "rolld": "",
+            "order": 5,
+            "isAdvanced": [],
+            "keyCombo": [],
+            "labelCombo": []
+          },
+          {
+            "id": "620643e45add3d00013c0dc2",
+            "key": "creationDate",
+            "label": "creationDate",
+            "widget": "Text",
+            "service": "FSP",
+            "rolld": "",
+            "order": 2,
+            "isAdvanced": [],
+            "keyCombo": [],
+            "labelCombo": []
+          },
+          {
+            "success": true,
+            "errors": [],
+            "lastUpdate": "2023-04-27 12:13:18.000344",
+            "pagination": {
+              "currentPage": 0,
+              "totalltems": 8,
+              "totalPages": 1,
+              "pageSize": 10000
+            }
+          }
+        ]
+      }`;
+      
+      this.inputCm = JSON.parse(json)
   }
 
   onSort() {
